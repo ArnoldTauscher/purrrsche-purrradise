@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  /*padding-top: var(--navbar-height);*/
+  background: var(--color-bg);
+}
+
+.gradient__bg {
+  background: var(--background-gradient-ff);
+  background: var(--background-gradient-safari);
+  background: var(--background-gradient-opera);
+  background: var(--background-gradient-ie);
+  background: var(--background-gradient-global);
+}
+
+.gradient__text {
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section__padding {
+  padding: 4rem 6rem;
+}
+
+.section__margin {
+  margin: 0rem 6rem 4rem 6rem;
+}
+
+h1 {
+  color: var(--color-text1);
+  font-family: 'Porsche';
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 45px;
+  text-transform: uppercase;
+
+  margin: 0 1.5rem;
+}
+
+h2 {
+  color: var(--color-text1);
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 30px;
+
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: var(--color-text1);
+  font-family: 'Porsche';
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 25px;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+
+  margin: 0 1.5rem;
+}
+
+h4 {
+  color: var(--color-text1);
+  font-family: var(--font-family);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+h5 {
+  color: var(--color-text1);
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 17px;
+
+  margin-bottom: 0.9rem;
+}
+
+p {
+color: var(--color-text2);
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0.1em;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+input {
+  flex: 2;
+  width: 100%;
+  min-height: 50px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  background: transparent;
+  border: 2px solid;
+  border-color: #fff;
+  padding: 0 1rem;
+  outline: none;
+  color: var(--color-text1);
+
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+textarea {
+  flex: 2;
+  width: 100%;
+  min-height: 250px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  background: transparent;
+  border: 2px solid;
+  border-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  outline: none;
+  color: var(--color-text1);
+}
+
+.errortext {
+  font-weight: 600;
+  color: #8b0000;
+}
+
+@media screen and (max-width: 800px) {    /* media queries */
+  .section__padding {
+    padding: 4rem;
+  }
+
+  .section__margin {
+    margin: 0rem 4rem 4rem 4rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  h1 {
+    font-size: 28px;
+    line-height: 32px;
+    margin: 0 0.5rem;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .section__padding {
+    padding: 2rem;
+  }
+
+  .section__margin {
+    margin: 0.5rem 2rem 2rem 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section__padding {
+    padding: 1rem;
+  }
+
+  .section__margin {
+    margin: 0rem 1rem 1rem 1rem;
+  }
+}
+
+.scale-up-center { /* https://animista.net/ */
+	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+ @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+} /* bis hier */
+
+

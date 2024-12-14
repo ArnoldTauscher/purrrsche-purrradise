@@ -1,0 +1,29 @@
+.spielregeln {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+  
+.spielregeln h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+  
+.spielregeln ol {
+    padding-left: 20px;
+}
+  
+.spielregeln ul {
+    padding-left: 20px;
+}
+  
+.spielregeln li {
+    margin-bottom: 10px;
+}
+  
+.spielregeln strong {
+    color: #0066cc;
+} 

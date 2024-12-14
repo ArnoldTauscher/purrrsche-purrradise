@@ -1,0 +1,36 @@
+.popup-contact-form .ok-button {
+    background-color: #f0f0f0;
+    border-color: #fff;
+    transition: 0.5s;
+}
+
+.popup-contact-form .ok-button:hover {
+    background-color: #f0f0f0df;
+  }
+
+.contact-form input {
+    margin-bottom: 1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.submit-button {
+    min-height: 50px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    background-color: #FF6342;
+    color: #000;
+    border: 2px solid ;
+    border-color: #FF4820;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem 0 0.5rem 0;
+    padding: 0 20px;
+    transition: 0.5s;
+}
+
+.submit-button:hover {
+  background-color: #ff6242d7;
+}

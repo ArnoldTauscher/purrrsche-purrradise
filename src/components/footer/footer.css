@@ -1,0 +1,114 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-footer);
+    padding: 4rem;
+}
+
+.footer p {
+    font-family: var(--font-family);
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: left;
+}
+
+.footer-links_logo {
+    width: 260px;
+    display: flex;
+}
+
+.footer-links_logo img {
+    width: 118px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-links_logo_p {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0.2rem 0 0.2rem 1rem;
+}
+
+.footer-links_div, .footer-inaktivlinks_div {
+    width: 130px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.footer-links_div p {
+    cursor: pointer;
+}
+
+.footer-inaktivlinks_div h5,
+.footer-inaktivlinks_div p {
+    color: #808080;
+    cursor: auto;
+}
+
+.footer-copyright {
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .footer {
+        padding: 4rem 2rem;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-links_logo {
+        width: 100%;
+        order: 2;                   /* Verschiebt das Logo-Element ans Ende */
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .footer-links_div, .footer-inaktivlinks_div {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .footer {
+        padding: 4rem 1rem;
+    }
+
+    .footer-links_div, .footer-inaktivlinks_div {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links div {
+        margin: 1rem 0;
+    }
+}

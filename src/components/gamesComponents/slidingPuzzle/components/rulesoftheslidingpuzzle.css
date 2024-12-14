@@ -1,0 +1,26 @@
+.game-rules {
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+}
+
+.game-rules td {
+    text-align: start;
+    padding: 5px;
+}
+
+.last-row h4 {
+    text-align: center;
+}
+
+.rules-ok-button {
+    margin-top: 0 !important;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+    .game-rules {
+        padding: 0;
+    }
+}

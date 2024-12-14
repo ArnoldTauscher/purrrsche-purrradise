@@ -1,0 +1,19 @@
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: solid 1px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: none;
+    margin-left: 5px;
+}
+
+.info-icon:hover {
+    cursor: pointer;
+}

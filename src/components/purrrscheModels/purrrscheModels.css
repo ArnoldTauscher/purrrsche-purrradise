@@ -1,0 +1,101 @@
+.models {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid;
+    border-color: var(--color-bg);
+    border-radius: 1rem;
+    margin: 0 auto 3rem auto;
+    padding-top: 1.5rem;
+}
+
+.models-header {
+    margin-bottom: 1rem;
+}
+
+.models-header h1 {
+    font-weight: 500;
+}
+
+.folder {
+    margin-bottom: 1rem;
+}
+
+.folder-header {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.folder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    padding: 1rem 0.5rem;
+}
+
+.folder-content p {
+    color: var(--color-subtext);
+    padding: 0 2rem 2rem 2rem;
+}
+
+.image-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 100%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.show-more {
+    display: flex;
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.show-less {
+    cursor: pointer;
+}
+
+.chevron {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.chevron.right {
+border-top: 5px solid transparent;
+border-bottom: 5px solid transparent;
+border-left: 5px solid currentColor;
+}
+
+.chevron.down {
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 5px solid currentColor;
+}
+
+.plus {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 1150px) {
+    .folder-content p {
+        padding: 0 1rem 2rem 1rem;
+    }
+}

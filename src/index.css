@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Porsche';
+  src: url('./assets/fonts/911porschav3.ttf');
+}
+
+:root {
+  --font-family: 'Manrope', sans-serif;
+  scroll-padding-top: 180px;
+
+  --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+
+  --altcha-border-width: 1px;
+  --altcha-border-radius: 3px;
+  --altcha-color-base: #ffffff;
+  --altcha-color-border: #a0a0a0;
+}
+
+.dark-mode {
+  --color-bg: #040C18;
+  --color-footer: #031B34;
+  --color-blog: #042c54;
+  --color-text1: #fff;
+  --color-text2: #81AFDD;
+  
+  /* https://angrytools.com/gradient/ */
+  /* ff 3.6+ */
+  --background-gradient-ff: -moz-radial-gradient(circle at 5% 10%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 35%);
+  
+  /* safari 5.1+,chrome 10+ */
+  --background-gradient-safari: -webkit-radial-gradient(circle at 5% 10%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 35%);
+  
+  /* opera 11.10+ */
+  --background-gradient-opera: -o-radial-gradient(circle at 5% 10%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 35%);
+ 
+  /* ie 10+ */
+  --background-gradient-ie: -ms-radial-gradient(circle at 5% 10%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 35%);
+  
+  /* global 92%+ browsers support */
+  --background-gradient-global: radial-gradient(circle at 5% 10%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 35%);
+}
+
+.light-mode {
+  --color-bg: #F0F8FF;
+  --color-footer: #E6F3FF;
+  --color-blog: #CCE6FF;
+  --color-text1: #000;
+  --color-text2: #1E3A5F;
+  
+  --background-gradient-ff: -moz-radial-gradient(circle at 5% 10%, rgba(204, 230, 255, 1) 0%, rgba(240, 248, 255, 1) 35%);
+  --background-gradient-safari: -webkit-radial-gradient(circle at 5% 10%, rgba(204, 230, 255, 1) 0%, rgba(240, 248, 255, 1) 35%);
+  --background-gradient-opera: -o-radial-gradient(circle at 5% 10%, rgba(204, 230, 255, 1) 0%, rgba(240, 248, 255, 1) 35%);
+  --background-gradient-ie: -ms-radial-gradient(circle at 5% 10%, rgba(204, 230, 255, 1) 0%, rgba(240, 248, 255, 1) 35%);
+  --background-gradient-global: radial-gradient(circle at 5% 10%, rgba(204, 230, 255, 1) 0%, rgba(240, 248, 255, 1) 35%);
+}
