@@ -1,25 +1,33 @@
 import axios from 'axios';
 import NodeCache from 'node-cache';
 
+// Hole den OpenWeatherMap API-Key aus den Umgebungsvariablen
 const OWM_API_KEY = process.env.OWM_API_KEY;
 
-const cache = new NodeCache({ stdTTL: 600 }); // Cache für 10 Minuten
+// Initialisiere Cache für Wetterdaten (10 Minuten Standard-Lebensdauer)
+const cache = new NodeCache({ stdTTL: 600 });
 
-export const getCities = async (req, res) => {
+// Sucht Städte anhand eines Query-Strings.
+export const getCities = async (req, res, next) => {
   const query = req.query.q;
   if (query && query.length > 2) {
     try {
-      const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${OWM_API_KEY}`);
-      res.json(response.data);
+      const response = await axios.get(
+        `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)}&limit=5&appid=${OWM_API_KEY}`
+      );
+      return res.status(200).json(response.data);
     } catch (error) {
-      handleWeatherError(error, res);
+      console.error('Fehler in getCities:', error);
+      next(error);
     }
   } else {
-    res.status(400).json({ error: "Query zu kurz" });
+    // Query zu kurz
+    return res.status(400).json({ error: "Query zu kurz" });
   }
 };
 
-export const getCurrentWeather = async (req, res) => {
+// Holt das aktuelle Wetter für eine Stadt, nutzt Caching.
+export const getCurrentWeather = async (req, res, next) => {
   const { city } = req.params;
   const cacheKey = `weather_${city}`;
 
@@ -29,15 +37,19 @@ export const getCurrentWeather = async (req, res) => {
   }
 
   try {
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${OWM_API_KEY}&units=metric&lang=de`);
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${OWM_API_KEY}&units=metric&lang=de`
+    );
     cache.set(cacheKey, response.data);
-    res.json(response.data);
+    return res.status(200).json(response.data);
   } catch (error) {
-    handleWeatherError(error, res);
+    console.error('Fehler in getCurrentWeather:', error);
+    next(error);
   }
 };
 
-export const getForecast = async (req, res) => {
+// Holt die Wettervorhersage für eine Stadt, nutzt Caching.
+export const getForecast = async (req, res, next) => {
   const { city } = req.params;
   const cacheKey = `forecast_${city}`;
 
@@ -47,15 +59,19 @@ export const getForecast = async (req, res) => {
   }
 
   try {
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${OWM_API_KEY}&units=metric&lang=de`);
-    cache.set(cacheKey, response.data);
-    res.json(response.data);
+    const response = await axios.get(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&appid=${OWM_API_KEY}&units=metric&lang=de`
+    );
+    cache.set(cacheKey, response.data, 1800); // 30 Minuten Cache für Forecast
+    return res.status(200).json(response.data);
   } catch (error) {
-    handleWeatherError(error, res);
+    console.error('Fehler in getForecast:', error);
+    next(error);
   }
 };
 
-export const getTiles = async (req, res) => {
+// Holt Wetterkarten-Kacheln (Tiles) von OpenWeatherMap.
+export const getTiles = async (req, res, next) => {
   const { type, z, x, y } = req.params;
   try {
     const response = await axios.get(
@@ -63,25 +79,9 @@ export const getTiles = async (req, res) => {
       { responseType: 'arraybuffer' }
     );
     res.set('Content-Type', 'image/png');
-    res.send(response.data);
+    return res.status(200).json(response.data);
   } catch (error) {
-    handleWeatherError(error, res);
-  }
-};
-
-const handleWeatherError = (error, res) => {
-  if (axios.isAxiosError(error) && error.response) {
-    switch (error.response.status) {
-      case 401:
-        res.status(401).json({ message: 'Ungültiger API-Schlüssel' });
-        break;
-      case 404:
-        res.status(404).json({ message: 'Ressource nicht gefunden' });
-        break;
-      default:
-        res.status(error.response.status).json({ message: 'Fehler beim OpenWeatherMap-Service', details: error.response.data });
-    }
-  } else {
-    res.status(500).json({ message: 'Interner Serverfehler' });
+    console.error('Fehler in getTiles:', error);
+    next(error);
   }
 };
